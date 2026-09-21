@@ -14,9 +14,15 @@ ARCHIVE = DIST / "action-first.zip"
 FIXED_TIME = (1980, 1, 1, 0, 0, 0)
 
 
+def canonical_payload(source: Path) -> bytes:
+    """Return UTF-8 content with platform-independent LF line endings."""
+    text = source.read_text(encoding="utf-8")
+    return text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+
+
 def build() -> tuple[Path, str]:
     DIST.mkdir(exist_ok=True)
-    payload = SOURCE.read_bytes()
+    payload = canonical_payload(SOURCE)
     info = zipfile.ZipInfo("action-first/SKILL.md", FIXED_TIME)
     info.compress_type = zipfile.ZIP_DEFLATED
     info.external_attr = 0o100644 << 16
