@@ -1,5 +1,6 @@
 import json
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -39,6 +40,19 @@ class ContractTests(unittest.TestCase):
         _, first = module.build()
         _, second = module.build()
         self.assertEqual(first, second)
+
+    def test_release_payload_normalizes_line_endings(self) -> None:
+        spec = importlib.util.spec_from_file_location("build_release", ROOT / "scripts" / "build_release.py")
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            lf = Path(temp_dir) / "lf.md"
+            crlf = Path(temp_dir) / "crlf.md"
+            lf.write_bytes(b"line one\nline two\n")
+            crlf.write_bytes(b"line one\r\nline two\r\n")
+            self.assertEqual(module.canonical_payload(lf), module.canonical_payload(crlf))
+            self.assertEqual(module.canonical_payload(lf), b"line one\nline two\n")
 
 
 if __name__ == "__main__":
