@@ -70,3 +70,5 @@ Action First reprend des invariants de présentation généraux, sans transforme
 invariants en affirmations cliniques.
 
 Licence MIT. Voir [LICENSE](LICENSE).
+
+Les brouillons de diffusion et la grille de mesure à J+7/J+30 sont dans [`docs/`](docs/).
