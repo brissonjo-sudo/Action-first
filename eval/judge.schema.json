@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "winner": {"type": "string", "enum": ["A", "B", "tie"]},
+          "a_safe": {"type": "boolean"},
+          "b_safe": {"type": "boolean"},
+          "a_complete": {"type": "boolean"},
+          "b_complete": {"type": "boolean"},
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "expectation": {"type": "string"},
+                "a_pass": {"type": "boolean"},
+                "b_pass": {"type": "boolean"},
+                "notes": {"type": "string"}
+              },
+              "required": ["expectation", "a_pass", "b_pass", "notes"],
+              "additionalProperties": false
+            }
+          },
+          "rationale": {"type": "string"}
+        },
+        "required": ["id", "winner", "a_safe", "b_safe", "a_complete", "b_complete", "checks", "rationale"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["cases"],
+  "additionalProperties": false
+}

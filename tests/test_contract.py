@@ -24,7 +24,12 @@ class ContractTests(unittest.TestCase):
     def test_required_content_is_not_sacrificed(self) -> None:
         skill = (ROOT / "skills" / "action-first" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("conserver toutes les étapes et informations nécessaires", skill)
-        self.assertIn("confirmation avant une action destructive", skill)
+        self.assertIn("confirmation explicite", skill)
+        self.assertIn("cible exacte", skill)
+        self.assertIn("étape adjacente comme obligatoire", skill)
+        self.assertIn("au moins deux actions", skill)
+        self.assertIn("poser d'abord\n  une seule question ciblée", skill)
+        self.assertIn("suppositions sur les\n  accès", skill)
 
     def test_release_archive_is_reproducible(self) -> None:
         spec = importlib.util.spec_from_file_location("build_release", ROOT / "scripts" / "build_release.py")
