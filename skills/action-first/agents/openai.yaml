@@ -1,0 +1,6 @@
+interface:
+  display_name: "Action First"
+  short_description: "Des réponses directes et immédiatement actionnables"
+  default_prompt: "Use $action-first to answer with the result or next action first."
+policy:
+  allow_implicit_invocation: false

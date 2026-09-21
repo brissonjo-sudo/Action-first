@@ -1,0 +1,29 @@
+{
+  "name": "action-first",
+  "version": "0.1.0",
+  "description": "Action-first output shaping: result first, numbered steps, visible progress, no filler.",
+  "author": {
+    "name": "brissonjo-sudo",
+    "url": "https://github.com/brissonjo-sudo"
+  },
+  "homepage": "https://github.com/brissonjo-sudo/action-first",
+  "repository": "https://github.com/brissonjo-sudo/action-first",
+  "license": "MIT",
+  "keywords": ["action-first", "output-style", "productivity", "accessibility", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Action First",
+    "shortDescription": "Lead with the result or next action",
+    "longDescription": "Shape responses so the useful result appears first, multi-step work is numbered, progress stays visible, and required information is preserved.",
+    "developerName": "brissonjo-sudo",
+    "category": "Productivity",
+    "capabilities": ["Instructions"],
+    "websiteURL": "https://github.com/brissonjo-sudo/action-first",
+    "defaultPrompt": [
+      "Use Action First for this task.",
+      "Make this answer direct and executable.",
+      "Review this response for action-first structure."
+    ],
+    "brandColor": "#155EEF"
+  }
+}

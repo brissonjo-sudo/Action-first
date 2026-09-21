@@ -1,0 +1,9 @@
+{
+  "name": "action-first",
+  "version": "0.1.0",
+  "description": "Lead with the result or next action, number multi-step work, preserve required information, and remove filler.",
+  "author": {
+    "name": "brissonjo-sudo",
+    "url": "https://github.com/brissonjo-sudo"
+  }
+}
